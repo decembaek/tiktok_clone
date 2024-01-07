@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/email_screen.dart';
 import 'package:tiktok_clone/features/authentication/login_screen.dart';
+import 'package:tiktok_clone/features/authentication/username_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -21,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade100,
+        color: Colors.grey.shade50,
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: Sizes.size1),
@@ -45,15 +47,15 @@ class SignUpScreen extends StatelessWidget {
         ),
       ),
       // SafeArea 안전지역 자세히 알아보기
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: Sizes.size28,
           ),
           child: Column(
             children: [
               Gaps.v80,
-              Text(
+              const Text(
                 "Sign up for TikTok",
                 style: TextStyle(
                   fontSize: Sizes.size24,
@@ -61,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v20,
-              Text(
+              const Text(
                 "Create a profile, follow other accounts, make your own videos, and more.",
                 style: TextStyle(
                   fontSize: Sizes.size16,
@@ -71,13 +73,16 @@ class SignUpScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Gaps.v40,
+              // navigation 전달해서 편하게 제작하기
               AuthButton(
-                icon: FaIcon(FontAwesomeIcons.user),
-                text: "Use phone or email",
+                navigation: (context) => const UsernameScreen(),
+                icon: const FaIcon(FontAwesomeIcons.user),
+                text: "Use emaill & password",
               ),
               Gaps.v16,
               AuthButton(
-                icon: FaIcon(FontAwesomeIcons.apple),
+                navigation: (context) => const EmailScreen(),
+                icon: const FaIcon(FontAwesomeIcons.apple),
                 text: "Continue with apple",
               ),
             ],
