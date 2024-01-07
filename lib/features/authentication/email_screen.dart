@@ -98,6 +98,7 @@ class _UsernameScreenState extends State<EmailScreen> {
                 controller: _emailController,
                 // 키보드 타입 정하기
                 keyboardType: TextInputType.emailAddress,
+                // 앱 키보드에서 done 이나 완료 누를때 감지
                 onEditingComplete: _onSubmit,
                 // 자동완성 끄기
                 autocorrect: false,
