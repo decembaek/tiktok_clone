@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authentication/widgets/form_button.dart';
+import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 
 class LoginFormScreen extends StatefulWidget {
   const LoginFormScreen({super.key});
@@ -25,7 +26,14 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
       if (_formKey.currentState!.validate()) {
         // save 하면 Form 마다 onSaved 실행
         _formKey.currentState!.save();
-        print(formData);
+
+        // 임시 코드
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const InterestsScreen(),
+          ),
+        );
+        // print(formData);
       }
     }
 
@@ -55,6 +63,9 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                 //validator is 유효성 검사
                 validator: (value) {
                   // return "I don't like your email";
+                  if (value != null && value.isEmpty) {
+                    return "Plase write your eamil";
+                  }
                   return null;
                 },
                 // callback 콜백 함수
@@ -71,6 +82,9 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                 ),
                 validator: (value) {
                   // return "wrong password"; 오류 메세지
+                  if (value != null && value.isEmpty) {
+                    return "Plase write your password";
+                  }
                   return null;
                 },
                 onSaved: (newValue) {
