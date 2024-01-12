@@ -77,7 +77,7 @@ class SignUpScreen extends StatelessWidget {
               AuthButton(
                 navigation: (context) => const UsernameScreen(),
                 icon: const FaIcon(FontAwesomeIcons.user),
-                text: "Use emaill & password",
+                text: "Use phone or email",
               ),
               Gaps.v16,
               AuthButton(
