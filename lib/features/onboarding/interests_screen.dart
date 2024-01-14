@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/onboarding/tutorial_screen.dart';
 import 'package:tiktok_clone/features/onboarding/widgets/interest_button.dart';
 
 const interests = [
@@ -70,6 +71,15 @@ class _InterestsScreenState extends State<InterestsScreen> {
         _showTitle = false;
       });
     }
+  }
+
+  void _onNextTop() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const TutorialScreen(),
+      ),
+    );
   }
 
   @override
@@ -173,7 +183,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
           // ),
           // Button 디자인할때 Cupertino 쓰면 편함
           child: CupertinoButton(
-            onPressed: () {},
+            onPressed: _onNextTop,
             color: Theme.of(context).primaryColor,
             child: const Text("Next"),
           ),
