@@ -34,10 +34,19 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   void _onNextTap() {
-    Navigator.of(context).push(
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (context) => const InterestsScreen(),
+    //   ),
+    // );
+    // push 하고 페이지 remove 관리 ture(뒤로가기 가능), false(뒤로가기 불가능 )
+    Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(
         builder: (context) => const InterestsScreen(),
       ),
+      (route) {
+        return false;
+      },
     );
   }
 
