@@ -39,42 +39,64 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[_selectedIndex],
-      // bottomNavigationBar 아래에 선택 네비게이션
-      bottomNavigationBar: BottomNavigationBar(
-        // 선택시 색상
-        selectedItemColor: Theme.of(context).primaryColor,
-        // unselectedItemColor: Color,
-        // 현재 페이지 인덱스
-        currentIndex: _selectedIndex,
-        onTap: _onTap,
-        items: const [
-          BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.house),
-              label: "Home",
-              tooltip: "Hello World",
-              backgroundColor: Colors.amber),
-          BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-              label: "Search",
-              tooltip: "Hello World",
-              backgroundColor: Colors.blue),
-          BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-              label: "Search",
-              tooltip: "Hello World",
-              backgroundColor: Colors.red),
-          BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-              label: "Search",
-              tooltip: "Hello World",
-              backgroundColor: Colors.black),
-          BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
-              label: "Search",
-              tooltip: "Hello World",
-              backgroundColor: Colors.green),
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: _onTap,
+        destinations: const [
+          NavigationDestination(
+            icon: FaIcon(
+              FontAwesomeIcons.house,
+              color: Colors.teal,
+            ),
+            label: "Home",
+          ),
+          NavigationDestination(
+            icon: FaIcon(
+              FontAwesomeIcons.magnifyingGlass,
+              color: Colors.amber,
+            ),
+            label: "Search",
+          ),
         ],
       ),
+      // bottomNavigationBar 아래에 선택 네비게이션
+      // Type을 정할 수 있음
+      // bottomNavigationBar: BottomNavigationBar(
+      //   // 선택시 색상
+      //   selectedItemColor: Theme.of(context).primaryColor,
+      //   // unselectedItemColor: Color,
+      //   // 현재 페이지 인덱스
+      //   currentIndex: _selectedIndex,
+      //   onTap: _onTap,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //         icon: FaIcon(FontAwesomeIcons.house),
+      //         label: "Home",
+      //         tooltip: "Hello World",
+      //         backgroundColor: Colors.amber),
+      //     BottomNavigationBarItem(
+      //         icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+      //         label: "Search",
+      //         tooltip: "Hello World",
+      //         backgroundColor: Colors.blue),
+      //     BottomNavigationBarItem(
+      //         icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+      //         label: "Search",
+      //         tooltip: "Hello World",
+      //         backgroundColor: Colors.red),
+      //     BottomNavigationBarItem(
+      //         icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+      //         label: "Search",
+      //         tooltip: "Hello World",
+      //         backgroundColor: Colors.black),
+      //     BottomNavigationBarItem(
+      //         icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+      //         label: "Search",
+      //         tooltip: "Hello World",
+      //         backgroundColor: Colors.green),
+      //   ],
+      // ),
     );
   }
 }
