@@ -22,19 +22,19 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     Container(),
     StfScreen(key: GlobalKey()),
     StfScreen(key: GlobalKey()),
-    const Center(
-      child: Text("Home"),
-    ),
-    const Center(
-      child: Text("Discover"),
-    ),
-    Container(),
-    const Center(
-      child: Text("InBox"),
-    ),
-    const Center(
-      child: Text("Profile"),
-    ),
+    // const Center(
+    //   child: Text("Home"),
+    // ),
+    // const Center(
+    //   child: Text("Discover"),
+    // ),
+    // Container(),
+    // const Center(
+    //   child: Text("InBox"),
+    // ),
+    // const Center(
+    //   child: Text("Profile"),
+    // ),
   ];
 
   void _onTap(int index) {

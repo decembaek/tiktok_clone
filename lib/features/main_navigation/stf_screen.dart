@@ -17,19 +17,27 @@ class _StfScreenState extends State<StfScreen> {
   }
 
   @override
+  void dispose() {
+    print(_clicks);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "$_clicks",
-          style: const TextStyle(fontSize: 45),
-        ),
-        TextButton(
-          onPressed: _increase,
-          child: const Text("+"),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "$_clicks",
+            style: const TextStyle(fontSize: 45),
+          ),
+          TextButton(
+            onPressed: _increase,
+            child: const Text("+"),
+          ),
+        ],
+      ),
     );
   }
 }
