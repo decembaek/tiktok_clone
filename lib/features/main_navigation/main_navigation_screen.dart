@@ -98,6 +98,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               Gaps.h24,
               Stack(
                 children: [
+                  // 6분 45초
                   // Positioned 는 Stack 내부의 element를 이동시킬 수 있게 해줌
                   Positioned(
                     right: 20,
