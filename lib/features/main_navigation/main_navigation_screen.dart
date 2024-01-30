@@ -95,6 +95,54 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 selectedIcon: FontAwesomeIcons.compass,
                 onTap: () => _onTap(1),
               ),
+              Gaps.h24,
+              Stack(
+                children: [
+                  // Positioned 는 Stack 내부의 element를 이동시킬 수 있게 해줌
+                  Positioned(
+                    right: 20,
+                    child: Container(
+                      height: 30,
+                      width: 25,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sizes.size8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(
+                          Sizes.size11,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 20,
+                    child: Container(
+                      height: 30,
+                      width: 25,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sizes.size8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(
+                          Sizes.size11,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 30,
+                    decoration: const BoxDecoration(color: Colors.white),
+                    child: const Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: Colors.black,
+                      ),
+                    ),
+                  )
+                ],
+              ),
               NavTab(
                 text: "Inbox",
                 isSelected: _selectedIndex == 3,
