@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/main_navigation/stf_screen.dart';
+import 'package:tiktok_clone/features/main_navigation/post_video_button.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/nav_tab.dart';
+import 'package:tiktok_clone/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -43,6 +44,18 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     });
   }
 
+  void _onPostVideoButtonTap() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Scaffold(
+          appBar: AppBar(title: const Text("Record video")),
+        ),
+        // 전체화면 fullscreenDialog
+        fullscreenDialog: true,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,22 +68,22 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           Offstage(
             // true 면 숨김, false 면 보임
             offstage: _selectedIndex != 0,
-            child: const StfScreen(),
+            child: const VideoTimeLineScreen(),
           ),
           Offstage(
             // true 면 숨김, false 면 보임
             offstage: _selectedIndex != 1,
-            child: const StfScreen(),
+            child: Container(),
           ),
           Offstage(
             // true 면 숨김, false 면 보임
             offstage: _selectedIndex != 3,
-            child: const StfScreen(),
+            child: Container(),
           ),
           Offstage(
             // true 면 숨김, false 면 보임
             offstage: _selectedIndex != 4,
-            child: const StfScreen(),
+            child: Container(),
           ),
         ],
       ),
@@ -80,6 +93,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           padding: const EdgeInsets.all(Sizes.size2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NavTab(
                 text: "Home",
@@ -95,54 +109,13 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 selectedIcon: FontAwesomeIcons.compass,
                 onTap: () => _onTap(1),
               ),
-              Gaps.h24,
-              Stack(
-                children: [
-                  // 6분 45초
-                  // Positioned 는 Stack 내부의 element를 이동시킬 수 있게 해줌
-                  Positioned(
-                    right: 20,
-                    child: Container(
-                      height: 30,
-                      width: 25,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Sizes.size8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(
-                          Sizes.size11,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    left: 20,
-                    child: Container(
-                      height: 30,
-                      width: 25,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Sizes.size8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(
-                          Sizes.size11,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 30,
-                    decoration: const BoxDecoration(color: Colors.white),
-                    child: const Center(
-                      child: FaIcon(
-                        FontAwesomeIcons.plus,
-                        color: Colors.black,
-                      ),
-                    ),
-                  )
-                ],
+              // Gaps.h16,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GestureDetector(
+                  onTap: _onPostVideoButtonTap,
+                  child: const PostVideoButton(),
+                ),
               ),
               NavTab(
                 text: "Inbox",
