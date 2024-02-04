@@ -38,6 +38,9 @@ dependencies:
   # awesome한 아이콘 등 가져오기
   font_awesome_flutter: 10.3.0
 
+  #video_player
+  video_player: 2.8.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,8 +63,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/videos/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
