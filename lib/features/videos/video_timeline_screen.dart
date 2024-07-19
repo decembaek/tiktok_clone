@@ -67,32 +67,8 @@ class _VideoTimeLineScreenState extends State<VideoTimeLineScreen> {
       scrollDirection: Axis.vertical,
       onPageChanged: _onPageChanged,
       itemCount: _itemCount,
-      itemBuilder: (context, index) => VideoPost(
-        onVideoFinished: _onVideoFinished,
-        // color: colors[index],
-        // child: Center(
-        //   child: Text(
-        //     "Screen $index",
-        //     style: const TextStyle(
-        //       fontSize: 68,
-        //     ),
-        //   ),
-        // ),
-      ),
-      // children: [
-      //   Container(
-      //     color: Colors.blue,
-      //   ),
-      //   Container(
-      //     color: Colors.red,
-      //   ),
-      //   Container(
-      //     color: Colors.amber,
-      //   ),
-      //   Container(
-      //     color: Colors.green,
-      //   ),
-      // ],
+      itemBuilder: (context, index) =>
+          VideoPost(onVideoFinished: _onVideoFinished, index: index),
     );
   }
 }
